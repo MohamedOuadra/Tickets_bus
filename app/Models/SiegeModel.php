@@ -4,15 +4,21 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AdminModel extends Model
+class SiegeModel extends Model
 {
-    protected $table            = 'admin';
-    protected $primaryKey       = 'id_admin';
+    protected $table            = 'sieges';
+    protected $primaryKey       = 'id_siege';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['email_admin', 'mot_de_passe'];
+    protected $allowedFields    = [
+        'id_bus',
+        'numero_siege',
+        'est_reserve',
+        'created_at',
+        'updated_at'
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

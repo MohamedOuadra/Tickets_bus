@@ -21,8 +21,18 @@ class CreateBusTable extends Migration
             'nombre_sieges' => [
                 'type' => 'INT',
             ],
+            'created_at' => [
+                'type'    => 'TIMESTAMP',
+                'null'    => true,
+                'default' => null,
+            ],
+            'updated_at' => [
+                'type'    => 'TIMESTAMP',
+                'null'    => true,
+                'default' => null,
+            ],
         ]);
-        $this->forge->addKey('id_bus', true);
+        $this->forge->addPrimaryKey('id_bus');
         $this->forge->createTable('buses');
     }
 

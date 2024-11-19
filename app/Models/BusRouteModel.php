@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AdminModel extends Model
+class BusRouteModel extends Model
 {
-    protected $table            = 'admin';
-    protected $primaryKey       = 'id_admin';
+    protected $table            = 'bus_routes';
+    protected $primaryKey       = 'id_bus_route';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['email_admin', 'mot_de_passe'];
+    protected $allowedFields    = [];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

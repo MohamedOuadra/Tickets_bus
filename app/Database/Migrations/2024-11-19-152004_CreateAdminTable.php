@@ -10,7 +10,7 @@ class CreateAdminTable extends Migration
     {
         $this->forge->addField([
             'id_admin' => [
-                'type'           => 'BIGINT',
+                'type'           => 'INT',
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
@@ -23,7 +23,7 @@ class CreateAdminTable extends Migration
                 'constraint' => 50,
             ],
         ]);
-        $this->forge->addPrimaryKey('id_admin', true);
+        $this->forge->addKey('id_admin', true);
         $this->forge->createTable('admin');
     }
 
