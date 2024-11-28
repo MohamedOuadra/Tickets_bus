@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class SiegeReservationModel extends Model
 {
     protected $table            = 'siege_reservations';
-    protected $primaryKey       = ['id_reservation', 'id_siege'];
+    protected $primaryKey       = 'id_siege_reservation';
     protected $useAutoIncrement = false;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;

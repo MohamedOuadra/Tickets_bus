@@ -50,11 +50,12 @@ class CreateBusRouteTable extends Migration
         $this->forge->addPrimaryKey('id_bus_route');
         $this->forge->addForeignKey('id_bus', 'buses', 'id_bus', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('id_route', 'routes', 'id_route', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('bus_route');
+        $this->forge->createTable('bus_routes');
     }
 
     public function down()
     {
-        $this->forge->dropTable('bus_route');
+        $this->forge->dropTable('bus_routes');
     }
 }
+

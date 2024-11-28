@@ -12,8 +12,7 @@ class BusRouteModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
-
+    protected $allowedFields    = ['id_bus','id_route','heure_depart','heure_arrivee','prix'];
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 

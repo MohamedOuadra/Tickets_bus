@@ -15,9 +15,6 @@ class SiegeModel extends Model
     protected $allowedFields    = [
         'id_bus',
         'numero_siege',
-        'est_reserve',
-        'created_at',
-        'updated_at'
     ];
 
     protected bool $allowEmptyInserts = false;

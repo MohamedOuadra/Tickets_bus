@@ -13,14 +13,11 @@ class ReservationModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'id_reservation',
         'id_siege',
         'id_client',
         'id_route',
         'ticket_code',
         'date_reservation',
-        'created_at',
-        'updated_at',
     ];
 
     protected bool $allowEmptyInserts = false;

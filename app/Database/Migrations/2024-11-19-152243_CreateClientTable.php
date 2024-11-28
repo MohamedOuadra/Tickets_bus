@@ -36,7 +36,7 @@ class CreateClientTable extends Migration
             ],
             'mot_de_passe' => [
                 'type'       => 'VARCHAR',
-                'constraint' => 25,
+                'constraint' => 255,
                 'null'       => false,
             ],
             'created_at' => [

@@ -10,25 +10,32 @@ class CreateAdminTable extends Migration
     {
         $this->forge->addField([
             'id_admin' => [
-                'type'           => 'INT',
+                'type'           => 'BIGINT',
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
             'email_admin' => [
                 'type'       => 'VARCHAR',
-                'constraint' => 100,
+                'constraint' => 255,
+                'null'       => false,
             ],
             'mot_de_passe' => [
                 'type'       => 'VARCHAR',
-                'constraint' => 50,
+                'constraint' => 255,
+                'null'       => false,
             ],
         ]);
-        $this->forge->addKey('id_admin', true);
+
+        // Définir la clé primaire
+        $this->forge->addPrimaryKey('id_admin');
+
+        // Créer la table
         $this->forge->createTable('admin');
     }
 
     public function down()
     {
+        // Supprimer la table
         $this->forge->dropTable('admin');
     }
 }

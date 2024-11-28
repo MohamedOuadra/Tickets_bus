@@ -23,10 +23,6 @@ class CreateSiegesTable extends Migration
                 'type'       => 'INT',
                 'null'       => false,
             ],
-            'est_reserve' => [
-                'type'       => 'BOOLEAN',
-                'default'    => false,
-            ],
             'created_at' => [
                 'type'       => 'TIMESTAMP',
                 'null'       => true,

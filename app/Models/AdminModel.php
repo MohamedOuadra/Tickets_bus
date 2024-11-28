@@ -13,10 +13,8 @@ class AdminModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['email_admin', 'mot_de_passe'];
-
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
-
     protected array $casts = [];
     protected array $castHandlers = [];
 
