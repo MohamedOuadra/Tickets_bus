@@ -16,6 +16,7 @@ class ReservationModel extends Model
         'id_siege',
         'id_client',
         'id_route',
+        'id_bus',
         'ticket_code',
         'date_reservation',
     ];
