@@ -11,3 +11,4 @@ $routes->get('auth/register', 'Auth::registerView');  // To display the registra
 $routes->post('auth/register', 'Auth::register');      // To handle the form submission and store data in the database
 $routes->get('auth/login', 'Auth::loginView');
 $routes->post('auth/login', 'Auth::login');
+$routes->get('/test', 'Home::test');
