@@ -26,10 +26,6 @@ class CreateReservationsTable extends Migration
                 'type'       => 'BIGINT',
                 'unsigned'   => true,
             ],
-            'id_bus' => [
-                'type'       => 'BIGINT',
-                'unsigned'   => true,
-            ],
             'ticket_code' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 125,
@@ -56,7 +52,6 @@ class CreateReservationsTable extends Migration
         $this->forge->addForeignKey('id_siege', 'sieges', 'id_siege', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('id_client', 'clients', 'id_client', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('id_route', 'routes', 'id_route', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('id_bus', 'buses', 'id_bus', 'CASCADE', 'CASCADE');
 
         $this->forge->createTable('reservations');
     }
