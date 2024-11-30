@@ -42,4 +42,13 @@ class BusRouteModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getBusRoutesWithDetails()
+    {
+        return $this->select('bus_routes.*, buses.nom_bus, routes.ville_depart, routes.ville_arrivee')
+                    ->join('buses', 'buses.id_bus = bus_routes.id_bus')
+                    ->join('routes', 'routes.id_route = bus_routes.id_route')
+                    ->findAll();
+    }
 }
+
