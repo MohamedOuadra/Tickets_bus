@@ -11,47 +11,7 @@ use App\Models\SiegeModel;
 
 class SiegesController extends BaseController
 {
-    // public function index()
-    // {
-    //     $routeModel = new RouteModel();
-    //     $busRouteModel = new BusRouteModel();
-    //     $siegeReservationModel = new SiegeReservationModel();
-
-    //     // Récupérer toutes les routes pour le formulaire
-    //     $data['routes'] = $routeModel->findAll();
-
-    //     // Initialisation des données
-    //     $data['bus_list'] = [];
-    //     $data['siege_reservations'] = [];
-
-    //     // Vérifier si une recherche est effectuée
-    //     $routeId = $this->request->getGet('route');
-    //     $dateDepart = $this->request->getGet('date_depart');
-
-    //     if (!empty($routeId) && !empty($dateDepart)) {
-    //         // Récupérer les bus associés à cette route
-    //         $data['bus_list'] = $busRouteModel
-    //             ->select('buses.id_bus, buses.nom_bus')
-    //             ->join('buses', 'buses.id_bus = bus_routes.id_bus')
-    //             ->where('bus_routes.id_route', $routeId)
-    //             ->findAll();
-
-    //         // Récupérer les sièges réservés pour cette date
-    //         $data['siege_reservations'] = $siegeReservationModel
-    //             ->where('date_depart', $dateDepart)
-    //             ->findAll();
-
-    //         // Débogage : Vérifier les résultats des requêtes
-    //         if (empty($data['bus_list'])) {
-    //             $data['error_message'] = "Aucun bus n'est disponible pour cette route.";
-    //         }
-    //     } else {
-    //         $data['error_message'] = "Veuillez sélectionner une route et une date de départ.";
-    //     }
-
-    //     return view('Siege_view', $data);
-    // }
-    public function index()
+public function index()
 {
     $SiegeReservationModel = new SiegeReservationModel();
     $busRouteModel = new BusRouteModel();
