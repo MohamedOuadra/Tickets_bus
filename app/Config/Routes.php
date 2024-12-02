@@ -14,7 +14,7 @@ $routes->get('auth/login', 'Auth::loginView');
 $routes->post('auth/login', 'Auth::login');
  // $routes->setAutoRoute(true);
 
-$routes->get('/', 'DashboardController::index');
+$routes->get('/Dashboard', 'DashboardController::index');
 
 $routes->get('routes', 'RoutesController::index');
 $routes->post('routes/add', 'RoutesController::add');
@@ -39,9 +39,18 @@ $routes->post('Customers/delete', 'CustomersControllers::delete');
 $routes->get('Reservation', 'ReservationController::index');
 $routes->post('Reservation/add', 'ReservationController::add');
 $routes->post('Reservation/update', 'ReservationController::update');
+$routes->post('Reservation/update_siege', 'ReservationController::update_siege');
 $routes->post('Reservation/delete', 'ReservationController::delete');
 
 
 
+$routes->group('sieges', function($routes) {
+    // Route pour afficher les routes dans le formulaire
+    $routes->get('/', 'SiegesController::index');
+
+    // Route pour afficher les bus et sièges en fonction de la route et de la date
+    $routes->post('showbus', 'SiegesController::showbus');
+    $routes->post('showsiege', 'SiegesController::showsiege');
+});
 
 
