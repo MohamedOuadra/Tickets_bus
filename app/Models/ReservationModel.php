@@ -77,5 +77,32 @@ class ReservationModel extends Model
         ->findAll();
     }
 
+    public function getUniqueReservationDetails()
+{
+    return $this->select('
+            reservations.*,
+            reservations.ticket_code,
+            clients.id_client, 
+            clients.nom_client, 
+            clients.telephone_client, 
+            buses.nom_bus,
+            buses.id_bus, 
+            routes.ville_depart, 
+            routes.ville_arrivee, 
+            sieges.numero_siege, 
+            reservations.date_reservation,
+            bus_routes.prix, 
+            siege_reservations.date_depart
+        ')
+        ->join('clients', 'clients.id_client = reservations.id_client')
+        ->join('sieges', 'sieges.id_siege = reservations.id_siege')
+        ->join('buses', 'buses.id_bus = sieges.id_bus')
+        ->join('routes', 'routes.id_route = reservations.id_route')
+        ->join('bus_routes', 'bus_routes.id_route = reservations.id_route AND bus_routes.id_bus = sieges.id_bus', 'left')
+        ->join('siege_reservations', 'siege_reservations.id_siege = reservations.id_siege', 'left')
+        ->distinct(); // Ensure unique rows are retrieved.
+}
+
+
     
 }
