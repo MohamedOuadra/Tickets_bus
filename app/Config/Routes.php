@@ -7,14 +7,20 @@ use App\Controllers\Auth;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
 $routes->get('auth/register', 'Auth::registerView');  // To display the registration form
 $routes->post('auth/register', 'Auth::register');      // To handle the form submission and store data in the database
 $routes->get('auth/login', 'Auth::loginView');
 $routes->post('auth/login', 'Auth::login');
+$routes->get('reserver', 'ClientReservation::index');
+$routes->get('/ClientReservation/search', 'ClientReservation::search');
+$routes->get('/reservations/(:num)', 'GetReservationsClient::index/$1');
+$routes->get('ClientReservation/getAvailableSeats', 'ClientReservation::getAvailableSeats');
+$routes->post('ClientReservation/reserveSeat', 'ClientReservation::reserveSeat');
+
+
  // $routes->setAutoRoute(true);
 
-$routes->get('/Dashboard', 'DashboardController::index');
+$routes->get('/', 'DashboardController::index');
 
 $routes->get('routes', 'RoutesController::index');
 $routes->post('routes/add', 'RoutesController::add');
@@ -39,7 +45,6 @@ $routes->post('Customers/delete', 'CustomersControllers::delete');
 $routes->get('Reservation', 'ReservationController::index');
 $routes->post('Reservation/add', 'ReservationController::add');
 $routes->post('Reservation/update', 'ReservationController::update');
-$routes->post('Reservation/update_siege', 'ReservationController::update_siege');
 $routes->post('Reservation/delete', 'ReservationController::delete');
 
 
@@ -52,5 +57,4 @@ $routes->group('sieges', function($routes) {
     $routes->post('showbus', 'SiegesController::showbus');
     $routes->post('showsiege', 'SiegesController::showsiege');
 });
-
 
