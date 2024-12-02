@@ -50,24 +50,17 @@ class ReservationModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    // public function getReservationsWithDetails()
-    // {  
-    //     return $this->select('reservations.* , bus_routes.prix , buses.nom_bus , siege_reservations.id_siege , siege_reservations.date_depart , sieges.numero_siege , routes.ville_depart, routes.ville_arrivee , clients.nom_client , clients.prenom_client , clients.telephone_client')
-    //                 ->join('siege_reservations', 'siege_reservations.id_reservation = reservations.id_reservation')
-    //                 ->join('routes', 'routes.id_route = bus_routes.id_route')
-    //                 ->join('sieges', 'sieges.id_siege = siege_reservations.id_siege')
-    //                 ->join('buses', 'buses.id_bus = sieges.id_bus')
-    //                 ->join('routes', 'routes.id_route = reservations.id_route')
-    //                 ->join('clients', 'clients.id_client = reservations.id_client')
-    //                 ->findAll();
-    // }
+    
     public function getReservationDetails()
     {
         return $this->select('
-            reservations.ticket_code, 
+            reservations.*,
+            reservations.ticket_code,
+            clients.id_client, 
             clients.nom_client, 
             clients.telephone_client, 
-            buses.nom_bus, 
+            buses.nom_bus,
+            buses.id_bus, 
             routes.ville_depart, 
             routes.ville_arrivee, 
             sieges.numero_siege, 
@@ -84,34 +77,5 @@ class ReservationModel extends Model
         ->findAll();
     }
 
-    // public function getReservationsWithDetails()
-    // {
-    //     return $this->select('reservations.*, sieges.numero_siege, clients.nom_client, clients.telephone_client, 
-    //                           routes.ville_depart, routes.ville_arrivee, siege_reservations.date_depart')
-    //                 ->join('sieges', 'sieges.id_siege = reservations.id_siege')
-    //                 ->join('clients', 'clients.id_client = reservations.id_client')
-    //                 ->join('routes', 'routes.id_route = reservations.id_route')
-    //                 ->join('siege_reservations', 'siege_reservations.id_reservation = reservations.id_reservation', 'left')
-    //                 ->findAll();
-    // }
-    // public function getReservationsWithDetails()
-    // {
-    //     return $this->select('
-    //             reservations.*, 
-    //             sieges.numero_siege, 
-    //             clients.nom_client, 
-    //             clients.telephone_client, 
-    //             routes.ville_depart, 
-    //             routes.ville_arrivee, 
-    //             siege_reservations.date_depart,
-    //             buses.id_bus, 
-    //             buses.nom_bus')
-    //         ->join('sieges', 'sieges.id_siege = reservations.id_siege')
-    //         ->join('clients', 'clients.id_client = reservations.id_client')
-    //         ->join('routes', 'routes.id_route = reservations.id_route')
-    //         ->join('siege_reservations', 'siege_reservations.id_reservation = reservations.id_reservation', 'left')
-    //         ->join('buses', 'buses.id_bus = sieges.id_bus') // Join avec la table buses pour récupérer id_bus
-    //         ->findAll();
-    // }
-
+    
 }
