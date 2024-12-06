@@ -12,10 +12,12 @@ $routes->post('auth/register', 'Auth::register');      // To handle the form sub
 $routes->get('auth/login', 'Auth::loginView');
 $routes->post('auth/login', 'Auth::login');
 $routes->get('reserver', 'ClientReservation::index');
-$routes->get('/ClientReservation/search', 'ClientReservation::search');
+$routes->post('/ClientReservation/search', 'ClientReservation::search');
 $routes->get('/reservations/(:num)', 'GetReservationsClient::index/$1');
-$routes->get('ClientReservation/getAvailableSeats', 'ClientReservation::getAvailableSeats');
-$routes->post('ClientReservation/reserveSeat', 'ClientReservation::reserveSeat');
+// $routes->post('ClientReservation/reserveSeat', 'ClientReservation::reserveSeat');
+$routes->post('ClientReservation/showSeats', 'ClientReservation::showSeats');
+$routes->post('/client_reservation/reserveSeat', 'ClientReservation::reserveSeat');
+
 
 
  // $routes->setAutoRoute(true);
