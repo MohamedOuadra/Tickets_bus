@@ -67,7 +67,8 @@ class Auth extends BaseController
             // Vérification de l'utilisateur dans la table admin
             $admin = $adminModel->where('email_admin', $email)->first();
 
-            if ($admin) {
+
+            if ($admin ) {
                 if (password_verify($password, $admin['mot_de_passe'])) {
                     // Stocker les données de l'administrateur dans la session
                     session()->set([
@@ -76,18 +77,17 @@ class Auth extends BaseController
                         'role' => 'admin',
                         'isLoggedIn' => true,
                     ]);
-
-                    return redirect()->to('/dashboard'); // Redirection vers le tableau de bord
-                } else {
-                    return redirect()->back()->with('error', 'Mot de passe incorrect.');
+                    return redirect()->to('/Dashboard'); // Redirection vers la page d'accueil
+                }else {
+                    return redirect()->back()->with('error', 'Incorrect password');
                 }
+                    
             }
-
             // Vérification de l'utilisateur dans la table clients
             $client = $clientModel->where('email_client', $email)->first();
 
             if ($client) {
-                if (password_verify($password, $client['mot_de_passe'])) {
+                if (password_verify($password, $client['mot_de_passe']) ) {
                     // Stocker les données du client dans la session
                     session()->set([
                         'id' => $client['id_client'],
@@ -100,13 +100,24 @@ class Auth extends BaseController
                 } else {
                     return redirect()->back()->with('error', 'Mot de passe incorrect.');
                 }
+
+                
             }
+                
+
 
             // Aucun utilisateur trouvé
-            return redirect()->back()->with('error', "L'email n'existe pas.");
+            return redirect()->back()->with('error', "Email doesn't exist");
         }
 
         // Charger la vue de connexion si ce n'est pas une requête POST
         return view('login_view');
     }
+public function logout()
+{
+    session()->destroy();
+
+    return redirect()->to('/auth/login')->with('success', 'You are disconnected');
+}
+    
 }
