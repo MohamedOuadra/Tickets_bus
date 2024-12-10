@@ -96,7 +96,7 @@ class Auth extends BaseController
                         'isLoggedIn' => true,
                     ]);
 
-                    return redirect()->to('/home'); // Redirection vers la page d'accueil
+                    return redirect()->to('/reserver'); // Redirection vers la page d'accueil
                 } else {
                     return redirect()->back()->with('error', 'Mot de passe incorrect.');
                 }
