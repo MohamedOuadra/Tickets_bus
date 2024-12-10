@@ -50,5 +50,15 @@ class BusRouteModel extends Model
                     ->join('routes', 'routes.id_route = bus_routes.id_route')
                     ->findAll();
     }
+    public function getSiegeWithDetails()
+    {
+        return $this->select('bus_routes.*, sieges.id_siege ,siege_reservations.date_depart, buses.nom_bus, routes.ville_depart, routes.ville_arrivee')
+                    ->join('buses', 'buses.id_bus = bus_routes.id_bus')
+                    ->join('routes', 'routes.id_route = bus_routes.id_route')
+                    ->join('reservations', 'reservations.id_route = bus_routes.id_route')
+                    ->join('sieges', 'sieges.id_siege = reservations.id_siege')
+                    ->join('siege_reservations', 'siege_reservations.id_siege = sieges.id_siege ')
+                    ->findAll();
+    }
 }
 
