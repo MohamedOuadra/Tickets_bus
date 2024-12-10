@@ -66,7 +66,7 @@ class ReservationModel extends Model
             sieges.numero_siege, 
             reservations.date_reservation,
             bus_routes.prix, 
-            siege_reservations.date_depart
+            siege_reservations.date_depart 
         ')
         ->join('clients', 'clients.id_client = reservations.id_client')
         ->join('sieges', 'sieges.id_siege = reservations.id_siege')
@@ -74,6 +74,7 @@ class ReservationModel extends Model
         ->join('routes', 'routes.id_route = reservations.id_route')
         ->join('bus_routes', 'bus_routes.id_route = reservations.id_route AND bus_routes.id_bus = sieges.id_bus', 'left')
         ->join('siege_reservations', 'siege_reservations.id_siege = reservations.id_siege', 'left')
+        ->groupBy('reservations.id_reservation') 
         ->findAll();
     }
 
