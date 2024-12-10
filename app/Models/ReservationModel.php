@@ -50,6 +50,15 @@ class ReservationModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+
+
+    // Récupérer les réservations actuelles d'un client spécifique
+    public function getCurrentReservationsByClient($clientId)
+    {
+        return $this->asArray()
+                    ->where('id_client', $clientId)
+                    ->findAll();
+    }
     
     public function getReservationDetails()
     {

@@ -8,7 +8,7 @@ class SiegeReservationModel extends Model
 {
     protected $table            = 'siege_reservations';
     protected $primaryKey       = 'id_siege_reservation';
-    protected $useAutoIncrement = false;
+    protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
