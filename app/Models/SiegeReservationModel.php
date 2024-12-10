@@ -47,12 +47,13 @@ class SiegeReservationModel extends Model
     
     public function getSiegesreservesWithDetails()
     {
-    return $this->select('siege_reservations.*, clients.id_client, routes.id_route, buses.id_bus, buses.nom_bus, routes.ville_depart, routes.ville_arrivee, sieges.numero_siege')
+    return $this->select('siege_reservations.*,bus_routes.heure_depart,bus_routes.heure_arrivee,bus_routes.prix, clients.id_client, routes.id_route, buses.id_bus, buses.nom_bus, routes.ville_depart, routes.ville_arrivee, sieges.numero_siege')
                 ->join('reservations', 'reservations.id_reservation = siege_reservations.id_reservation')
                 ->join('clients', 'clients.id_client = reservations.id_client')
                 ->join('sieges', 'sieges.id_siege = siege_reservations.id_siege')
                 ->join('buses', 'buses.id_bus = sieges.id_bus')
                 ->join('routes', 'routes.id_route = reservations.id_route')
+                ->join('bus_routes', 'bus_routes.id_route = reservations.id_route AND bus_routes.id_bus = sieges.id_bus', 'left')
                 ->findAll();
-    }
+    }       
 }
