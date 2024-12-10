@@ -18,7 +18,7 @@ $routes->get('/reservations/(:num)', 'GetReservationsClient::index/$1');
 $routes->post('ClientReservation/showSeats', 'ClientReservation::showSeats');
 $routes->post('/client_reservation/reserveSeat', 'ClientReservation::reserveSeat');
 
-
+// changes
 
  // $routes->setAutoRoute(true);
 
