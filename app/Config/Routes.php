@@ -42,6 +42,7 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
 $routes->get('reserver', 'ClientReservation::index');
 $routes->get('/ClientReservation/search', 'ClientReservation::search');
 
+$routes->post('/ClientReservation/search', 'ClientReservation::search');
 $routes->get('/reservations/(:num)', 'GetReservationsClient::index/$1');
 $routes->post('/reservations/update', 'GetReservationsClient::update');
 $routes->post('reservations/update_siege', 'GetReservationsClient::update_siege');
@@ -49,7 +50,11 @@ $routes->post('/reservations/delete', 'GetReservationsClient::delete');
 
 $routes->get('ClientReservation/getAvailableSeats', 'ClientReservation::getAvailableSeats');
 $routes->post('ClientReservation/reserveSeat', 'ClientReservation::reserveSeat');
+// $routes->post('ClientReservation/reserveSeat', 'ClientReservation::reserveSeat');
+$routes->post('ClientReservation/showSeats', 'ClientReservation::showSeats');
+$routes->post('/client_reservation/reserveSeat', 'ClientReservation::reserveSeat');
 
+// changes
 
 // $routes->setAutoRoute(true);
 
