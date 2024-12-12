@@ -41,7 +41,7 @@
 													<?php endforeach; ?>
 												<?php else: ?>
 													<tr>
-														<td colspan="6">Aucune donnée trouvée</td>
+														<td colspan="6">No data found</td>
 													</tr>
 												<?php endif; ?>
 											</select>
@@ -57,7 +57,7 @@
 													<?php endforeach; ?>
 												<?php else: ?>
 													<tr>
-														<td colspan="6">Aucune donnée trouvée</td>
+														<td colspan="6">No data found</td>
 													</tr>
 												<?php endif; ?>
 											</select>
@@ -106,7 +106,7 @@
 													<?php endforeach; ?>
 												<?php else: ?>
 													<tr>
-														<td colspan="6">Aucune donnée trouvée</td>
+														<td colspan="6">No data found</td>
 													</tr>
 												<?php endif; ?>
 											</select>
@@ -122,7 +122,7 @@
 													<?php endforeach; ?>
 												<?php else: ?>
 													<tr>
-														<td colspan="6">Aucune donnée trouvée</td>
+														<td colspan="6">No data found</td>
 													</tr>
 												<?php endif; ?>
 											</select>
@@ -181,8 +181,8 @@
 							<th class="table-plus datatable-nosort">Id_Bus_Route</th>
 							<th>Bus</th>
 							<th>Route</th>
-							<th>Heure_Depart</th>
-							<th>Heure_Arrivee</th>
+							<th>Departure_time</th>
+							<th>Arrival_time</th>
 							<th>Cost</th>
 							<th class="datatable-nosort">Action</th>
 						</tr>
@@ -235,7 +235,7 @@
 							<?php endforeach; ?>
 						<?php else: ?>
 							<tr>
-								<td colspan="6">Aucune donnée trouvée</td>
+								<td colspan="6">No data found</td>
 							</tr>
 						<?php endif; ?>
 					</tbody>
