@@ -147,7 +147,7 @@
                             <?php endforeach; ?>
                             <?php else: ?>
                                 <tr>
-                                    <td colspan="6">Aucune donnée trouvée</td>
+                                    <td colspan="6">No data found</td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>
