@@ -110,6 +110,7 @@ class ReservationModel extends Model
         ->join('routes', 'routes.id_route = reservations.id_route')
         ->join('bus_routes', 'bus_routes.id_route = reservations.id_route AND bus_routes.id_bus = sieges.id_bus', 'left')
         ->join('siege_reservations', 'siege_reservations.id_siege = reservations.id_siege', 'left')
+        ->groupBy('reservations.id_reservation') 
         ->distinct(); // Ensure unique rows are retrieved.
 }
 
