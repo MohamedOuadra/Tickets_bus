@@ -3,7 +3,7 @@
 	<head>
 		<!-- Basic Page Info -->
 		<meta charset="utf-8" />
-		<title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+		<title>Amoudou</title>
 
 		<!-- Google Font -->
 		<link
@@ -17,7 +17,31 @@
 		<link rel="stylesheet" type="text/css" href="<?= base_url('styles/dataTables.bootstrap4.min.css') ?>" />
 		<link rel="stylesheet" type="text/css" href="<?= base_url('styles/responsive.bootstrap4.min.css') ?>" />
 		<link rel="stylesheet" type="text/css" href="<?= base_url('styles/style.css') ?>" />
-
+		<style>
+		.sidebar-light .sidebar-menu .dropdown-toggle {
+			color: #0b132b;
+			font-weight: 500;
+			margin: -4px 0px 0 -31px;
+		}
+		.sidebar-menu .dropdown-toggle {
+			display: block;
+			padding: 14px 6px 14px 67px;
+			font-size: 15px;
+			color: #fff;
+			font-weight: 500;
+			position: relative;
+			border-radius: 8px;
+			font-family: 'Inter', sans-serif;
+			-webkit-transition: all .3s ease-in-out;
+			transition: all .3s ease-in-out;
+		}
+		.i_side_bare {
+			margin: 0 42px 0 0;
+		}
+		i.icon-copy.dashboard.ion-android-film.i_side_bare {
+			margin: 0px 45px 0 5px;
+		}
+		</style>
 		
 	</head>
 	<body>
@@ -38,7 +62,7 @@
 							<span class="user-icon">
 								<img src="<?= base_url('vendors/images/photo1.jpg') ?>" alt="" />
 							</span>
-							<span class="user-name">Ross C. Lopez</span>
+							<span class="user-name">M. Admin</span>
 						</a>
 					</div>
 				</div>
@@ -81,51 +105,67 @@
 
 		<div class="left-side-bar">
 			<div class="brand-logo">
+				<a href="<?= base_url('/') ?>">
+                    <img style="height: 126%;" src="<?= base_url('vendors/images/bus/final_logo.png') ?>" alt="" />
+                </a>
 				<div class="close-sidebar" data-toggle="left-sidebar-close">
-					<i class="ion-close-round"></i>
+					<i class="ion-close-round  "></i>
 				</div>
 			</div>
 			<div class="menu-block customscroll">
 				<div class="sidebar-menu">
-                    <ul id="accordion-menu">
-                        <li>
-							<a href="sitemap.html" class="dropdown-toggle no-arrow">
-								<span class="mtext">Dashboard</span>
+					<ul id="accordion-menu">
+						<li>
+							<a href="<?= base_url('Dashboard') ?>" class="dropdown-toggle no-arrow">
+							<i class="icon-copy dashboard ion-android-home i_side_bare"></i>
+							<span class="mtext">Dashboard</span>
 							</a>
 						</li>
-                        <li>
-							<a href="sitemap.html" class="dropdown-toggle no-arrow">
-                                <i class="icon-copy fa fa-bus" aria-hidden="true"></i>    
-								<span class="mtext">Buses</span>
+						<li>
+							<a href="<?= base_url('buses') ?>" class="dropdown-toggle no-arrow">
+							<i class="icon-copy dashboard dw dw-bus i_side_bare"></i>
+							<span class="mtext">Buses</span>
 							</a>
 						</li>
-                        <li>
-							<a href="sitemap.html" class="dropdown-toggle no-arrow">
-								<span class="mtext">Routes</span>
+						<li>
+							<a href="<?= base_url('routes') ?>" class="dropdown-toggle no-arrow">
+							<i class="icon-copy dashboard ion-android-film  i_side_bare"></i>
+							<span class="mtext">Routes</span>
 							</a>
 						</li>
-                        <li>
-							<a href="sitemap.html" class="dropdown-toggle no-arrow">
+						<li>
+							<a href="<?= base_url('bus_route') ?>" class="dropdown-toggle no-arrow">
+								<i class="icon-copy dashboard ti-control-shuffle i_side_bare"></i>
+								<span class="mtext">Buses_Route</span>
+							</a>
+						</li>
+						<li>
+							<a href="<?= base_url('Reservation') ?>" class="dropdown-toggle no-arrow">
+								<i class="icon-copy dashboard dw dw-calendar1 i_side_bare"></i>
 								<span class="mtext">Bookings</span>
 							</a>
 						</li>
-                        <li>
-							<a href="sitemap.html" class="dropdown-toggle no-arrow">
+						<li>
+							<a href="<?= base_url('sieges') ?>" class="dropdown-toggle no-arrow">
+								<i class="icon-copy dashboard dw dw-chair i_side_bare"></i>
 								<span class="mtext">Seats</span>
 							</a>
 						</li>
-                        <li>
-							<a href="sitemap.html" class="dropdown-toggle no-arrow">
-								<span class="mtext">Custmors</span>
+						<li>
+							<a href="<?= base_url('Customers') ?>" class="dropdown-toggle no-arrow">
+								<i class="icon-copy dashboard dw dw-user1 i_side_bare"></i>
+								<span class="mtext">Customers</span>
 							</a>
 						</li>
-                        <li>
-							<a href="sitemap.html" class="dropdown-toggle no-arrow">
-								<span class="mtext">Add New Admin</span>
+						<li>
+							<a href="<?= site_url('auth/logout'); ?>" class="dropdown-toggle no-arrow">
+							<i class="icon-copy dashboard dw dw-logout i_side_bare"></i>
+							<span class="mtext">logout</span>
 							</a>
 						</li>
-                    </ul>
+					</ul>
 				</div>
+
 			</div>
 		</div>
 		<div class="mobile-menu-overlay"></div>
