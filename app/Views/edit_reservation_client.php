@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recherche des Bus</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+<?= $this->extend('Views\side_bare_client') ?>
+
+<?= $this->section('content') ?>
     <style>
         body {
             display: flex;
@@ -41,11 +37,27 @@
         .vert {
             background: linear-gradient(45deg, #43a047, #66bb6a);
         }
+        .legend {
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
         .rouge {
-            background: linear-gradient(45deg, #e53935, #ef5350);
+            background: linear-gradient(45deg, #188800, #0ed600);
         }
         .bleu {
-            background: linear-gradient(45deg, #1e88e5, #42a5f5);
+            background: #b0bec5; /* Couleur grise pour la désactivation */
         }
         .disabled {
             background: #b0bec5; /* Couleur grise pour la désactivation */
@@ -62,7 +74,18 @@
     <div>
         <?php if (!empty($siegereserves)): ?>
             <?php $i = 1; ?>
-            <h2 class="mt-5">Liste des sieges</h2>
+            <h2 class="mt-5">List of seats</h2>
+            <!-- Légende -->
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color rouge"></div>
+                    <span>Not Reserved</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color bleu"></div>
+                    <span>Reserved</span>
+                </div>
+            </div>
                 <form method="POST" action="<?= base_url('reservations/update_siege') ?>">
                     <div class="grid">
                         <script>
@@ -144,6 +167,5 @@
         <?php endif; ?>
 
     </div>
-</body>
-</html>
+    <?= $this->endSection() ?>
 
