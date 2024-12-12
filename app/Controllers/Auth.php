@@ -64,6 +64,27 @@ class Auth extends BaseController
             $adminModel = new AdminModel();
             $clientModel = new ClientModel();
 
+            $client = $clientModel->where('email_client', $email)->first();
+
+            if ($client) {
+                if (password_verify($password, $client['mot_de_passe']) ) {
+                    // Stocker les données du client dans la session
+                    session()->set([
+                        'id' => $client['id_client'],
+                        'email' => $client['email_client'],
+                        'prenom' => $client['prenom_client'],
+                        'nom' => $client['nom_client'],
+                        'role' => 'client',
+                        'isLoggedIn' => true,
+                    ]);
+                $id_client = session()->get('id');
+                    return redirect()->to("/reservations/$id_client"); // Redirection vers la page d'accueil
+                } else {
+                    return redirect()->back()->with('error', 'Mot de passe incorrect.');
+                }
+
+            }
+
             // Vérification de l'utilisateur dans la table admin
             $admin = $adminModel->where('email_admin', $email)->first();
 
@@ -83,26 +104,7 @@ class Auth extends BaseController
                 }
                     
             }
-            // Vérification de l'utilisateur dans la table clients
-            $client = $clientModel->where('email_client', $email)->first();
-
-            if ($client) {
-                if (password_verify($password, $client['mot_de_passe']) ) {
-                    // Stocker les données du client dans la session
-                    session()->set([
-                        'id' => $client['id_client'],
-                        'email' => $client['email_client'],
-                        'role' => 'client',
-                        'isLoggedIn' => true,
-                    ]);
-
-                    return redirect()->to('/reserver'); // Redirection vers la page d'accueil
-                } else {
-                    return redirect()->back()->with('error', 'Mot de passe incorrect.');
-                }
-
-                
-            }
+            
                 
 
 
