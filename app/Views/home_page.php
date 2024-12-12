@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Ticket Bookings</title>
+    <title>Amoudou</title>
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -53,7 +53,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header bg-dark text-white">
-                        <h5 class="modal-title" id="reservationModalLabel">Détails de la Réservation</h5>
+                        <h5 class="modal-title" id="reservationModalLabel">Booking Details</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -118,7 +118,7 @@
             </ul>
             <div>
                 <a href="<?= base_url('auth/login') ?>" class="login nav-item" ><i class="fas fa-sign-in-alt" style="margin-right: 0.4rem;"></i>Login</a>
-                <a href="#pnr-enquiry" class="pnr nav-item">PNR Enquiry</a>
+                <a href="#pnr-enquiry" class="pnr nav-item">Ticket Code</a>
             </div>
         </nav>
     </header>
@@ -139,10 +139,10 @@
     <div id="block">
         <section id="pnr-enquiry">
             <div id="pnr-form">
-                <h2>PNR ENQUIRY</h2>
-                <form action="<?= base_url('home_pnr/show_pnr') ?>" method="POST">
+                <h2>Ticket Code</h2>
+                <form action="<?= base_url('show_pnr') ?>" method="POST">
                     <div>
-                        <input type="text" name="pnr" id="pnr" placeholder="Enter PNR">
+                        <input type="text" name="pnr" id="pnr" placeholder="Enter your ticket code">
                     </div>
                     <button type="submit" name="pnr-search" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservationModal">Submit</button>
                 </form>
@@ -153,9 +153,11 @@
                 <h1>About Us</h1>
                 <h4>Wanna know were it all started?</h4>
                 <p>
-                    Lorem ipsum dolor sit amet consecteturadipisicing elit. Perferendis soluta voluptas eaque, numquam veritatis aperiam expedita deleniti, nesciunt cum alias velit. Cupiditate commodi
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus cum nisi ea optio unde aliquam quia reprehenderit atque eum tenetur! 
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed placeat debitis corporis voluptates modi quibusdam quidem voluptatibus illum, maiores sequi.
+                Welcome to our Bus Reservation System! Our goal is to make traveling easier and more convenient for everyone. With our platform, you can quickly search for buses, book your seats, and manage your reservations all in one place.
+
+We want to help people plan their trips without stress by using simple and reliable technology. Whether you're traveling for work or fun, our system is here to make your journey smooth and easy.
+
+We are dedicated to providing a service that is simple, reliable, and helpful for all our users. Let us make your travel plans easier and more enjoyable!
                 </p>
             </div>
         </section>
