@@ -40,7 +40,7 @@
 											</div>
 										</div>
 										<div class="form-group row">
-											<label class="col-sm-12 col-md-2 col-form-label">Name</label>
+											<label class="col-sm-12 col-md-2 col-form-label">Last_name</label>
 											<div class="col-sm-12 col-md-10">
 												<input class="form-control" type="text" id="nom_client" name="nom_client">
 											</div>
@@ -87,7 +87,7 @@
 											</div>
 										</div>
 										<div class="form-group row flow">
-											<label class="col-sm-12 col-md-2 col-form-label">Name</label>
+											<label class="col-sm-12 col-md-2 col-form-label">Last_name</label>
 											<div class="col-sm-12 col-md-10">
 												<input class="form-control" type="text" id="edit_nom_client" name="nom_client">
 											</div>
@@ -146,11 +146,10 @@
                         <thead>
                             <tr>
                                 <th class="table-plus datatable-nosort">Id_Customer</th>
-                                <th>Name</th>
+                                <th>Last_name</th>
 								<th>First_name</th>
 								<th>Phone</th>
 								<th>Useranme</th>
-								<th>Password</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
@@ -163,7 +162,6 @@
 										<td><?= esc($client['prenom_client']) ?></td>
 										<td><?= esc($client['telephone_client']) ?></td>
 										<td><?= esc($client['email_client']) ?></td>
-										<td><?= esc($client['mot_de_passe']) ?></td>
 										<td>
 											<div class="dropdown">
 												<a
@@ -202,7 +200,7 @@
 								<?php endforeach; ?>
 							<?php else: ?>
 								<tr>
-									<td colspan="6">Aucune donnée trouvée</td>
+									<td colspan="6">No data found</td>
 								</tr>
 							<?php endif; ?>
 						</tbody>
