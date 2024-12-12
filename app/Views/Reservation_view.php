@@ -1,6 +1,7 @@
 <?= $this->extend('Views\side_bare') ?>
 
 <?= $this->section('content') ?>
+	
 	<div class="main-container">
 		<!-- Checkbox select Datatable End -->
 		<!-- Export Datatable start -->
@@ -27,15 +28,15 @@
 				>
 					<thead>
 						<tr>
-                        <th class="table-plus datatable-nosort">Ticket_bus</th>
+						<th class="table-plus datatable-nosort">Ticket_bus</th>
 							<th>Customers</th>
 							<th>Phone Number</th>
 							<th>Bus Name</th>
 							<th>Route Name</th>
 							<th>Seat</th>
 							<th>Cost</th>
-							<th>Date_Depart</th>
-							<th>Date_Reservation</th>
+							<th>Departure_Date</th>
+							<th>Reservation_Date</th>
 							<th class="datatable-nosort">Action</th>
 						</tr>
 					</thead>
@@ -70,7 +71,8 @@
 											<input type="hidden" name="id_siege" value="<?= $reservation['id_siege']; ?>">
 											<input type="hidden" name="id_route" value="<?= $reservation['id_route']; ?>">
 											<input type="hidden" name="date_depart" value="<?= $reservation['date_depart']; ?>">											
-											<input type="hidden" name="id_client" value="<?= $reservation['id_client']; ?>">																						
+											<input type="hidden" name="id_client" value="<?= $reservation['id_client']; ?>">
+											<input type="hidden" name="id_reservation" value="<?= $reservation['id_reservation']; ?>">
 											<button class="dropdown-item" type="submit">
 												<i class="dw dw-edit2"></i> Edit
 											</button>
@@ -93,5 +95,5 @@
 			</div>
 		</div>
 	</div>
-	
+		
 <?= $this->endSection() ?>
