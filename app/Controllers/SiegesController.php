@@ -47,9 +47,9 @@ public function showbus()
         $availableSeats = $SiegeReservationModel->getSiegesreservesWithDetails();
 
 
-        if (empty($busRoutes) || empty($availableSeats)) {
+        if (!$busRoutes) {
             // Aucun bus disponible ou pas de réservations pour cette date
-            return redirect()->back()->with('error', 'Aucun bus trouvé pour cette route et cette date.');
+            return redirect()->back()->with('error', 'No buses found for this route and date');
         }
 
         // Passer les données à la vue
