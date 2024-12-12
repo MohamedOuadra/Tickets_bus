@@ -29,12 +29,31 @@
             background: linear-gradient(45deg, #43a047, #66bb6a);
         }
         .rouge {
-            background: linear-gradient(45deg, #e53935, #ef5350);
-        }
+                background: linear-gradient(45deg, #188800, #0ed600);
+            }
+            .bleu {
+                background: linear-gradient(45deg, #ff9d9d, #da4441);
+            }
+            .legend {
+                margin-top: 20px;
+            }
+
+            .legend-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            .legend-color {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+                border-radius: 5px;
+            }
         .case:hover {
             transform: scale(1.1);
             transition: transform 0.2s ease;
-}
+        }
     .bus-card {
         display: flex;
         justify-content: space-between;
@@ -196,13 +215,18 @@
 
 <body>
 <?php if (!empty($routes)): ?>
-
+    <?php 
+        $id_client = session()->get('id');
+    ?>
+    <?php if (session()->has('error')): ?>
+        <div class="alert alert-danger"><?= session()->get('error') ?></div>
+    <?php endif; ?>
     <form id="routeDateForm" method="post" action="<?= site_url('/ClientReservation/search'); ?>">
         <div class="search-form">
             <div class="form-group">
-                <label for="route">Route</label>
+                <label for="route">Select a Route</label>
                 <select id="route" name="route" class="form-select" required>
-                    <option value="">Choisir une route</option>
+                    <option value="">Choose a route</option>
                     <?php
                     $affichées = [];  // Tableau pour suivre les routes déjà affichées
                     foreach ($routes as $route):
@@ -218,10 +242,10 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="date_depart ">Date de voyage</label>
+                <label for="date_depart ">Departure Date</label>
                 <input type="date" id="date_depart" name="date_depart" required>
             </div>
-            <button type="submit" class="search-button">Rechercher</button>
+            <button type="submit" class="search-button">Search</button>
         </div>
     </form>
 
@@ -239,16 +263,15 @@
                         <div class='bus-info'>
                             <div class='card-header'>
                                 <span class='card-title'><?= $BusRoute['nom_bus']; ?></span>
-                                <span class='card-text'>Départ : <?= $BusRoute['heure_depart'] ?> &nbsp;&nbsp; - &nbsp;&nbsp; Arrivée : <?= $BusRoute['heure_arrivee'] ?> </span>
+                                <span class='card-text'>Departure : <?= $BusRoute['heure_depart'] ?> &nbsp;&nbsp; - &nbsp;&nbsp; Arrivée : <?= $BusRoute['heure_arrivee'] ?> </span>
                             </div>
-                            <p class='card-text'>Ville de départ : <?= $BusRoute['ville_depart'] ?> </p>
-                            <input type="hidden" name="id_siege" value="<?= $BusRoute['id_siege']; ?>">
-                            <p class='card-text'>Ville d'arrivée : <?= $BusRoute['ville_arrivee'] ?> </p>
+                            <p class='card-text'>Departure City : <?= $BusRoute['ville_depart'] ?> </p>
+                            <p class='card-text'>Arrival City : <?= $BusRoute['ville_arrivee'] ?> </p>
                         </div>
                         <div class='card-footer'>
                             <span class='price'> <?= $BusRoute['prix'] ?> DH</span>
                             <form method="post" action="<?= site_url('ClientReservation/showSeats'); ?>">
-                                <button type="submit" class="select-button">Sélectionner</button>
+                                <button type="submit" class="select-button">Select</button>
                                 <input type="hidden" name="id_bus" value="<?= $BusRoute['id_bus']; ?>">
                                 <input type="hidden" name="id_route" value="<?= $BusRoute['id_route']; ?>">
                                 <input type="hidden" name="date_depart" value="<?= $dateDepart; ?>">
@@ -262,15 +285,26 @@
         <?php endforeach; ?>
     <?php elseif (!empty($_POST['route'])): ?>
         <!-- Si le formulaire est soumis mais aucune donnée n'est trouvée pour cette route -->
-        <p>Aucun bus trouvé pour cette route.</p>
+        <p>No buses found for this route.</p>
     <?php endif; ?>
 <?php endif; ?>
 
 
     <div>
-    <?php if (!empty($siegereserves)): ?>
+    <?php if (!empty($Sieges)): ?>
         <?php $i = 1; ?>
-        <h2 class="mt-5">Liste des sieges</h2>
+        <h2 class="mt-5">List of seats</h2>
+        <!-- Légende -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color rouge"></div>
+                <span>Not Reserved</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color bleu"></div>
+                <span>Reserved</span>
+            </div>
+        </div>
         <form id="reservationForm" method="POST" action="<?= base_url('/client_reservation/reserveSeat') ?>">
                 <div class="grid">
                 <script>
@@ -321,6 +355,9 @@
                 $datesAffichees = [];
             ?>
             <?php foreach ($Sieges as $Siege): ?>
+                <input type="hidden" name="id_bus" value="<?= $id_bus ?>">
+                <input type="hidden" name="id_route" value="<?= $id_route ?>">
+                <input type="hidden" name="date_depart" value="<?= $dateDepart ?>">
                 <?php foreach ($siegereserves as $siegereserve): ?>
                     <?php if ($Siege['id_siege'] == $siegereserve['id_siege']): ?>
 
@@ -332,16 +369,7 @@
                         <script>
                             changeCaseColor(<?= $Siege['numero_siege']; ?>, 'bleu');
                         </script>
-
-                        <input type="hidden" name="id_bus" value="<?= $siegereserve['id_bus']; ?>">
-                        <input type="hidden" name="id_siege" value="<?= $siegereserve['id_siege']; ?>">
-                        <input type="hidden" name="id_route" value="<?= $siegereserve['id_route']; ?>">
-                        <input type="hidden" name="date_depart" value="<?= $siegereserve['date_depart']; ?>">
-                        <input type="hidden" name="id_client" value="<?= $siegereserve['id_client']; ?>">
-                        <input type="hidden" name="id_siege_reservation" value="<?= $siegereserve['id_siege_reservation']; ?>">
-
                         
-
                     <?php endif; ?>
                 <?php endforeach; ?>
             <?php endforeach; ?>
