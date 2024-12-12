@@ -11,7 +11,7 @@ class CustomersControllers extends BaseController
         // Instancier le modèle
         $ClientModel = new ClientModel();
 
-        // Récupérer les données de la table `routes`
+        // Récupérer les données de la table `Customers`
         $data['clients'] = $ClientModel->findAll();
 
         // Charger la vue et passer les données
@@ -39,13 +39,13 @@ class CustomersControllers extends BaseController
             // Tentative d'insertion dans la base
             if ($ClientModel->insert($data)) {
                 // Ajouter un message de succès dans la session flashdata
-                session()->setFlashdata('success', 'Route added successfully!');
+                session()->setFlashdata('success', 'Customer added successfully!');
             } else {
                 // Ajouter un message d'erreur dans la session flashdata
-                session()->setFlashdata('error', 'Failed to add route.');
+                session()->setFlashdata('error', 'Failed to add Customer.');
             }
 
-            // Redirection vers /routes
+            // Redirection vers /Customers
             return redirect()->to('/Customers');
         }
 
@@ -69,7 +69,7 @@ class CustomersControllers extends BaseController
                 'updated_at'    => date('Y-m-d H:i:s'),
             ];
 
-            // Mise à jour de la route
+            // Mise à jour de la Customer
             if ($ClientModel->update($id_client, $data)) {
                 // Ajouter un message de succès dans la session flashdata
                 session()->setFlashdata('success', 'Customer updated successfully!');
@@ -78,7 +78,7 @@ class CustomersControllers extends BaseController
                 session()->setFlashdata('error', 'Failed to update Customer.');
             }
 
-            // Redirection vers /routes
+            // Redirection vers /Customers
             return redirect()->to('/Customers');
         }
 
@@ -92,19 +92,19 @@ class CustomersControllers extends BaseController
             
             $ClientModel = new ClientModel();
 
-            // Récupérer l'ID de la route à supprimer
+            // Récupérer l'ID de la Customer à supprimer
             $id_client = $this->request->getPost('id_client');
 
-            // Tentative de suppression de la route
+            // Tentative de suppression de la Customer
             if ($ClientModel->delete($id_client)) {
                 // Ajouter un message de succès dans la session flashdata
                 session()->setFlashdata('success', 'Customer deleted successfully!');
             } else {
                 // Ajouter un message d'erreur dans la session flashdata
-                session()->setFlashdata('error', 'Customer to delete route.');
+                session()->setFlashdata('error', 'Failled to delete Customer.');
             }
 
-            // Redirection vers /routes
+            // Redirection vers /Customers
             return redirect()->to('/Customers');
         }
 
