@@ -43,10 +43,10 @@ class Bus_RouteControllers extends BaseController
             // Tentative d'insertion dans la base
             if ($busRouteModel->insert($data)) {
                 // Ajouter un message de succès dans la session flashdata
-                session()->setFlashdata('success', 'Bus added successfully!');
+                session()->setFlashdata('success', 'Bus_Route added successfully!');
             } else {
                 // Ajouter un message d'erreur dans la session flashdata
-                session()->setFlashdata('error', 'Failed to add Bus.');
+                session()->setFlashdata('error', 'Failed to add Bus_Route');
             }
 
             // Redirection vers /buses
@@ -76,10 +76,10 @@ class Bus_RouteControllers extends BaseController
             // Mise à jour de la Bus
             if ($busRouteModel->update($id_bus_route, $data)) {
                 // Ajouter un message de succès dans la session flashdata
-                session()->setFlashdata('success', 'Bus updated successfully!');
+                session()->setFlashdata('success', 'Bus_Route updated successfully!');
             } else {
                 // Ajouter un message d'erreur dans la session flashdata
-                session()->setFlashdata('error', 'Failed to update Bus.');
+                session()->setFlashdata('error', 'Failed to update Bus_Route');
             }
 
             // Redirection vers /buses
@@ -101,10 +101,10 @@ class Bus_RouteControllers extends BaseController
             // Tentative de suppression de la Bus
             if ($busRouteModel->delete($id_bus_route)) {
                 // Ajouter un message de succès dans la session flashdata
-                session()->setFlashdata('success', 'Bus deleted successfully!');
+                session()->setFlashdata('success', 'Bus_Route deleted successfully!');
             } else {
                 // Ajouter un message d'erreur dans la session flashdata
-                session()->setFlashdata('error', 'Failed to delete Bus.');
+                session()->setFlashdata('error', 'Failed to delete Bus_Route.');
             }
 
             // Redirection vers /buses
