@@ -1,68 +1,85 @@
-# CodeIgniter 4 Application Starter
+# Bus Reservation System
 
-## What is CodeIgniter?
+Welcome to our **Bus Reservation System**, a web-based application developed using CodeIgniter. This system allows users to reserve bus tickets, view seat availability, and manage bus routes, while providing an intuitive interface for administrators to oversee the entire system.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Features
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+### For Customers:
+- Reserve bus tickets easily.
+- View and manage reservations using a unique ticket code.
+- Log in to track reservation history.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+### For Administrators:
+- Manage buses, routes, and seat configurations.
+- View and manage customer reservations.
+- Generate and download reports in PDF, Excel, or print formats.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## Technologies Used
 
-## Installation & updates
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend Framework:** CodeIgniter
+- **Database:** MySQL
+- **Version Control:** Git and GitHub
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+## Installation
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/bus-reservation-system.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd bus-reservation-system
+   ```
+3. Configure your database in `application/config/database.php`.
+4. Run the project locally:
+   - Use a local server like XAMPP or WAMP.
+   - Place the project folder in the `htdocs` directory.
+5. Access the application at `http://localhost/Tickets_bus`.
 
-## Setup
+## Usage
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+1. **Customer Actions:**
+   - Visit the home page.
+   - Use the "Reserve Ticket" button to make a booking.
+   - Enter a ticket code to view reservation details.
 
-## Important Change with index.php
+2. **Admin Actions:**
+   - Log in using admin credentials.
+   - Navigate the admin dashboard to manage buses, routes, and reservations.
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## Future Enhancements
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+- Add support for online payment integration.
+- Implement real-time notifications for booking updates.
+- Enhance the analytics dashboard for admins.
 
-**Please** read the user guide for a better explanation of how CI4 works!
+## Contributing
 
-## Repository Management
+We welcome contributions to improve the Bus Reservation System! Please follow these steps:
+1. Fork the repository.
+2. Create a new branch for your feature:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add feature description"
+   ```
+4. Push the branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a Pull Request.
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+## License
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Server Requirements
+## Contact
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+For questions or feedback, please contact us at [mohamed.ouadra.84@edu.uiz.ac.ma] or [ali.halla.64@edu.uiz.ac.ma].
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+---
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Thank you for exploring the **Bus Reservation System**! We hope you find it useful and engaging.
